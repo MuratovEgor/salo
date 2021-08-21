@@ -18,6 +18,10 @@ public interface ProjectConfig extends Config {
     @Key("browserVersion")
     String browserVersion();
 
+    @DefaultValue("https://www.aviasales.ru")
+    @Key("baseUrl")
+    String baseUrl();
+
     @DefaultValue("1920x1080")
     @Key("browserSize")
     String browserSize();
