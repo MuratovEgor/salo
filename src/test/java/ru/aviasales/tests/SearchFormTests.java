@@ -29,6 +29,7 @@ public class SearchFormTests {
     @JiraIssues({@JiraIssue("AE-1")})
     @Tags({@Tag("web"), @Tag("regress"), @Tag("UI")})
     @DisplayName("A warning should be displayed if the Departure field is empty")
+    @Disabled("test")
     void checkWarningDepartureDataIsEmptyTest() {
         commonSteps.openPage("/?destination=MOW&origin=KRR");
         searchForm.submitForm();
