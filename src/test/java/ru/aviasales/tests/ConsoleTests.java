@@ -5,6 +5,8 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.*;
+import ru.aviasales.annotations.JiraIssue;
+import ru.aviasales.annotations.JiraIssues;
 import ru.aviasales.annotations.Layer;
 import ru.aviasales.config.Project;
 import ru.aviasales.helpers.CommonSteps;
@@ -26,6 +28,7 @@ public class ConsoleTests extends TestBase {
     @Description("Console test")
     @Story("Page console log should not have errors")
     @Tags({@Tag("web"), @Tag("regress")})
+    @JiraIssues({@JiraIssue("EM-105")})
     @DisplayName("Home Page console log should not have errors")
     void consoleShouldNotHaveErrorsTest() {
         new CommonSteps().openPage("");

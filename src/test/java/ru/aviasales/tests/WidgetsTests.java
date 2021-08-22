@@ -23,7 +23,7 @@ public class WidgetsTests {
 
     @Test
     @Story("Widgets")
-    @JiraIssues({@JiraIssue("AE-2")})
+    @JiraIssues({@JiraIssue("EM-102")})
     @Tags({@Tag("web"), @Tag("regress"), @Tag("UI")})
     @DisplayName("The Best Prices widget was shown")
     void showWidgetBestPrices() {
@@ -34,7 +34,7 @@ public class WidgetsTests {
 
     @Test
     @Story("Widgets")
-    @JiraIssues({@JiraIssue("AE-3")})
+    @JiraIssues({@JiraIssue("EM-103")})
     @Tags({@Tag("web"), @Tag("regress"), @Tag("UI")})
     @DisplayName("The Price Chart widget was shown")
     void showWidgetPriceChart() {
@@ -45,7 +45,7 @@ public class WidgetsTests {
 
     @Test
     @Story("Widgets")
-    @JiraIssues({@JiraIssue("AE-4")})
+    @JiraIssues({@JiraIssue("EM-104")})
     @Tags({@Tag("web"), @Tag("regress"), @Tag("UI")})
     @DisplayName("The Ticket Restriction widget was shown")
     void showWidgetTicketRestriction() {
