@@ -29,7 +29,6 @@ public class ConsoleTests extends TestBase {
     @Story("Page console log should not have errors")
     @Tags({@Tag("web"), @Tag("regress")})
     @DisplayName("Home Page console log should not have errors")
-    @Disabled("test")
     void consoleShouldNotHaveErrorsTest() {
         new CommonSteps().openPage("");
         step("Console logs should not contain text 'SEVERE'", () -> {
