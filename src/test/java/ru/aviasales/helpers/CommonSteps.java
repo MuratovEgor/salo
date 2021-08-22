@@ -15,6 +15,7 @@ public class CommonSteps {
 
     @Step("Set Cookie: {cookieName}: {cookieValue}")
     public void setCookie(String cookieName, String cookieValue) {
+        openPage("");
         Cookie cookie = getWebDriver().manage().getCookieNamed(cookieName);
         sleep(1000);
         getWebDriver().manage().deleteCookie(cookie);
