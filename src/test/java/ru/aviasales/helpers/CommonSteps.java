@@ -20,7 +20,7 @@ public class CommonSteps {
             getWebDriver().manage().deleteCookie(cookie);
             sleep(1000);
         }
-
+        refresh();
         getWebDriver().manage().addCookie(new Cookie(cookieName, cookieValue));
         refresh();
     }
