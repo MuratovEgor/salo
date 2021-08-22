@@ -18,7 +18,6 @@ public class WidgetsTests {
     @BeforeAll
     static void configureBaseUrl() {
         Configuration.baseUrl = Project.config.baseUrl();
-        commonSteps.openPage("");
         commonSteps.setCookie("auid", Cookie.config.auid());
     }
 
@@ -40,7 +39,6 @@ public class WidgetsTests {
     @DisplayName("The Price Chart widget was shown")
     void showWidgetPriceChart() {
         commonSteps.openPage("/?destination=MOW&origin=KRR");
-        commonSteps.setCookie("auid", Cookie.config.auid());
         widgets.checkWidgetTitle("График цен ");
         widgets.checkPriceChartWidgetIsVisible();
     }
@@ -52,7 +50,6 @@ public class WidgetsTests {
     @DisplayName("The Ticket Restriction widget was shown")
     void showWidgetTicketRestriction() {
         commonSteps.openPage("/?destination=IST&origin=KRR");
-        commonSteps.setCookie("auid", Cookie.config.auid());
         widgets.checkTicketRestrictionWidgetIsVisible();
     }
 }
