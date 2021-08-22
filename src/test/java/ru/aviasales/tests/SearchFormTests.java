@@ -7,18 +7,15 @@ import org.junit.jupiter.api.*;
 import ru.aviasales.annotations.JiraIssue;
 import ru.aviasales.annotations.JiraIssues;
 import ru.aviasales.annotations.Layer;
-import ru.aviasales.config.Cookie;
 import ru.aviasales.config.Project;
 import ru.aviasales.helpers.CommonSteps;
 import ru.aviasales.pageObjects.SearchForm;
-import ru.aviasales.pageObjects.Widgets;
 
 @Layer("Web")
 @Owner("egormuratov")
 public class SearchFormTests {
     SearchForm searchForm = new SearchForm();
     CommonSteps commonSteps = new CommonSteps();
-    Widgets widgets = new Widgets();
 
 
     @BeforeAll
@@ -55,31 +52,4 @@ public class SearchFormTests {
 
         searchForm.submitForm();
     }
-
-    @Test
-    @Story("Widgets")
-    @JiraIssues({@JiraIssue("AE-2")})
-    @Tags({@Tag("web"), @Tag("regress"), @Tag("UI")})
-    @DisplayName("The Best Prices widget was shown")
-    void showWidgetBestPrices() {
-        commonSteps.openPage("/?depart_date=2021-09-08&destination=MOW&origin=KRR");
-        commonSteps.setCookie("auid", Cookie.config.auid());
-        widgets.checkWidgetTitle("Лучшие цены");
-        widgets.checkBestPricesWidgetIsVisible();
-    }
-
-    @Test
-    @Story("Widgets")
-    @JiraIssues({@JiraIssue("AE-3")})
-    @Tags({@Tag("web"), @Tag("regress"), @Tag("UI")})
-    @DisplayName("The Price Chart widget was shown")
-    void showWidgetPriceChart() {
-        commonSteps.openPage("/?destination=MOW&origin=KRR");
-        commonSteps.setCookie("auid", Cookie.config.auid());
-        widgets.checkWidgetTitle("График цен ");
-        widgets.checkPriceChartWidgetIsVisible();
-    }
-
-
-
 }
