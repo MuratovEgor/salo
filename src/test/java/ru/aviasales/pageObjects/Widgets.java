@@ -6,6 +6,7 @@ import io.qameta.allure.Step;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
+import static java.time.Duration.ofSeconds;
 
 public class Widgets {
     SelenideElement TITLE_WIDGET = $("[data-selene-widget='prices'] h2[data-test-element='text']"),
@@ -15,21 +16,21 @@ public class Widgets {
 
     @Step("Widget title has text: {widgetTitle}")
     public void checkWidgetTitle(String widgetTitle) {
-        TITLE_WIDGET.shouldHave(text(widgetTitle));
+        TITLE_WIDGET.shouldHave(text(widgetTitle), ofSeconds(5));
     }
 
     @Step("The Best Prices widget was shown")
     public void checkBestPricesWidgetIsVisible() {
-        BEST_PRICES_WIDGET.shouldBe(visible);
+        BEST_PRICES_WIDGET.shouldBe(visible, ofSeconds(5));
     }
 
     @Step("The Price Chart widget was shown")
     public void checkPriceChartWidgetIsVisible() {
-        CHART_PRICE_WIDGET.shouldBe(visible);
+        CHART_PRICE_WIDGET.shouldBe(visible, ofSeconds(5));
     }
 
     @Step("The Ticket Restriction widget was shown")
     public void checkTicketRestrictionWidgetIsVisible() {
-        TICKET_RESTRICTION_WIDGET.shouldBe(visible);
+        TICKET_RESTRICTION_WIDGET.shouldBe(visible, ofSeconds(5));
     }
 }

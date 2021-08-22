@@ -13,13 +13,19 @@ public class CommonSteps {
     }
 
 
+    @Step("Edit Cookie: {cookieName}: {cookieValue}")
+    public void editCookie(String cookieName, String cookieValue) {
+        openPage("");
+        sleep(5000);
+        Cookie cookie = getWebDriver().manage().getCookieNamed(cookieName);
+        getWebDriver().manage().deleteCookie(cookie);
+        getWebDriver().manage().addCookie(new Cookie(cookieName, cookieValue));
+        refresh();
+    }
+
     @Step("Set Cookie: {cookieName}: {cookieValue}")
     public void setCookie(String cookieName, String cookieValue) {
         openPage("");
-        Cookie cookie = getWebDriver().manage().getCookieNamed(cookieName);
-        sleep(1000);
-        getWebDriver().manage().deleteCookie(cookie);
-        sleep(1000);
         getWebDriver().manage().addCookie(new Cookie(cookieName, cookieValue));
         refresh();
     }

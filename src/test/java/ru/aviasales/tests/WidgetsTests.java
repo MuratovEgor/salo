@@ -18,8 +18,7 @@ public class WidgetsTests {
     @BeforeAll
     static void configureBaseUrl() {
         Configuration.baseUrl = Project.config.baseUrl();
-        commonSteps.setCookie("auid", Cookie.config.auid());
-        System.out.println("111");
+        commonSteps.editCookie("auid", Cookie.config.auid());
     }
 
     @Test
