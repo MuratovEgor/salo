@@ -1,15 +1,19 @@
 package ru.aviasales.tests;
 
 import com.codeborne.selenide.Configuration;
+import io.qameta.allure.Owner;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.*;
 import ru.aviasales.annotations.JiraIssue;
 import ru.aviasales.annotations.JiraIssues;
+import ru.aviasales.annotations.Layer;
 import ru.aviasales.config.Cookie;
 import ru.aviasales.config.Project;
 import ru.aviasales.helpers.CommonSteps;
 import ru.aviasales.pageObjects.Widgets;
 
+@Layer("Web")
+@Owner("egormuratov")
 public class WidgetsTests {
 
     static CommonSteps commonSteps = new CommonSteps();
