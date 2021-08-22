@@ -6,6 +6,7 @@ import org.openqa.selenium.Cookie;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.refresh;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CommonSteps {
     @Step("Open page {url}")
@@ -20,5 +21,10 @@ public class CommonSteps {
         );
         getWebDriver().manage().addCookie(new Cookie(cookieName, cookieValue));
         refresh();
+    }
+
+    @Step("Check Cookie: {cookieName}: {cookieValue}")
+    public void checkCookie(String cookieName) {
+        assertEquals(getWebDriver().manage().getCookieNamed(cookieName), "CtYgeWEg4UiRB+0CJaiUAg==");
     }
 }

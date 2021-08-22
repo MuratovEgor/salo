@@ -32,6 +32,7 @@ public class SearchFormTests {
     @JiraIssues({@JiraIssue("AE-1")})
     @Tags({@Tag("web"), @Tag("regress"), @Tag("UI")})
     @DisplayName("A warning should be displayed if the Departure field is empty")
+    @Disabled("Test not finished")
     void checkWarningDepartureDataIsEmptyTest() {
         commonSteps.openPage("/?destination=MOW&origin=KRR");
         searchForm.submitForm();
@@ -64,7 +65,7 @@ public class SearchFormTests {
     void showWidgetBestPrices() {
         commonSteps.openPage("/?depart_date=2021-09-08&destination=MOW&origin=KRR");
         commonSteps.setCookie("auid", Cookie.config.auid());
-
+        commonSteps.checkCookie("auid");
         widgets.checkWidgetTitle("Лучшие цены");
     }
 
