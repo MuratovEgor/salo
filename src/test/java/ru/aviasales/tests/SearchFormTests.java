@@ -32,7 +32,6 @@ public class SearchFormTests {
     @JiraIssues({@JiraIssue("AE-1")})
     @Tags({@Tag("web"), @Tag("regress"), @Tag("UI")})
     @DisplayName("A warning should be displayed if the Departure field is empty")
-    @Disabled("Test not finished")
     void checkWarningDepartureDataIsEmptyTest() {
         commonSteps.openPage("/?destination=MOW&origin=KRR");
         searchForm.submitForm();
@@ -66,7 +65,21 @@ public class SearchFormTests {
         commonSteps.openPage("/?depart_date=2021-09-08&destination=MOW&origin=KRR");
         commonSteps.setCookie("auid", Cookie.config.auid());
         widgets.checkWidgetTitle("Лучшие цены");
+        widgets.checkBestPricesWidgetIsVisible();
     }
+
+    @Test
+    @Story("Widgets")
+    @JiraIssues({@JiraIssue("AE-3")})
+    @Tags({@Tag("web"), @Tag("regress"), @Tag("UI")})
+    @DisplayName("The Price Chart widget was shown")
+    void showWidgetPriceChart() {
+        commonSteps.openPage("/?destination=MOW&origin=KRR");
+        commonSteps.setCookie("auid", Cookie.config.auid());
+        widgets.checkWidgetTitle("График цен ");
+        widgets.checkPriceChartWidgetIsVisible();
+    }
+
 
 
 }
