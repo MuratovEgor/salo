@@ -1,9 +1,9 @@
 package ru.aviasales.helpers;
 
-import ru.aviasales.config.Project;
 import com.codeborne.selenide.Configuration;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import ru.aviasales.config.Project;
 
 import java.util.HashMap;
 import java.util.Map;

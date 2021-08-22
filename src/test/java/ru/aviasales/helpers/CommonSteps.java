@@ -14,10 +14,13 @@ public class CommonSteps {
 
     @Step("Set Cookie: {cookieName}: {cookieValue}")
     public void setCookie(String cookieName, String cookieValue) {
-        Cookie cookie = getWebDriver().manage().getCookieNamed(cookieName);
-        sleep(1000);
-        getWebDriver().manage().deleteCookie(cookie);
-        sleep(1000);
+        if (getWebDriver().manage().getCookieNamed(cookieName) != null) {
+            Cookie cookie = getWebDriver().manage().getCookieNamed(cookieName);
+            sleep(1000);
+            getWebDriver().manage().deleteCookie(cookie);
+            sleep(1000);
+        }
+
         getWebDriver().manage().addCookie(new Cookie(cookieName, cookieValue));
         refresh();
     }

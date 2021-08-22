@@ -10,17 +10,16 @@ import ru.aviasales.config.Project;
 import ru.aviasales.helpers.CommonSteps;
 import ru.aviasales.pageObjects.Widgets;
 
-import static com.codeborne.selenide.Selenide.sleep;
-
 public class WidgetsTests {
 
+    static CommonSteps commonSteps = new CommonSteps();
     Widgets widgets = new Widgets();
-    CommonSteps commonSteps = new CommonSteps();
-
 
     @BeforeAll
     static void configureBaseUrl() {
         Configuration.baseUrl = Project.config.baseUrl();
+        commonSteps.openPage("");
+        commonSteps.setCookie("auid", Cookie.config.auid());
     }
 
     @Test
@@ -30,8 +29,6 @@ public class WidgetsTests {
     @DisplayName("The Best Prices widget was shown")
     void showWidgetBestPrices() {
         commonSteps.openPage("/?depart_date=2021-09-08&destination=MOW&origin=KRR");
-        commonSteps.setCookie("auid", Cookie.config.auid());
-        sleep(100000000);
         widgets.checkWidgetTitle("Лучшие цены");
         widgets.checkBestPricesWidgetIsVisible();
     }
@@ -41,7 +38,6 @@ public class WidgetsTests {
     @JiraIssues({@JiraIssue("AE-3")})
     @Tags({@Tag("web"), @Tag("regress"), @Tag("UI")})
     @DisplayName("The Price Chart widget was shown")
-    @Disabled("test")
     void showWidgetPriceChart() {
         commonSteps.openPage("/?destination=MOW&origin=KRR");
         commonSteps.setCookie("auid", Cookie.config.auid());
@@ -54,7 +50,6 @@ public class WidgetsTests {
     @JiraIssues({@JiraIssue("AE-4")})
     @Tags({@Tag("web"), @Tag("regress"), @Tag("UI")})
     @DisplayName("The Ticket Restriction widget was shown")
-    @Disabled("test")
     void showWidgetTicketRestriction() {
         commonSteps.openPage("/?destination=IST&origin=KRR");
         commonSteps.setCookie("auid", Cookie.config.auid());
