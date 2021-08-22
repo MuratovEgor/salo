@@ -21,5 +21,6 @@ public class CommonSteps {
         );
         getWebDriver().manage().addCookie(new Cookie(cookieName, cookieValue));
         refresh();
+        System.out.println(getWebDriver().manage().getCookieNamed(cookieName));
     }
 }
