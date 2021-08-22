@@ -22,9 +22,4 @@ public class CommonSteps {
         getWebDriver().manage().addCookie(new Cookie(cookieName, cookieValue));
         refresh();
     }
-
-    @Step("Check Cookie: {cookieName}: {cookieValue}")
-    public void checkCookie(String cookieName) {
-        assertEquals(getWebDriver().manage().getCookieNamed(cookieName), "CtYgeWEg4UiRB+0CJaiUAg==");
-    }
 }
