@@ -3,8 +3,7 @@ package ru.aviasales.helpers;
 import io.qameta.allure.Step;
 import org.openqa.selenium.Cookie;
 
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.refresh;
+import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class CommonSteps {
@@ -15,11 +14,10 @@ public class CommonSteps {
 
     @Step("Set Cookie: {cookieName}: {cookieValue}")
     public void setCookie(String cookieName, String cookieValue) {
-        getWebDriver().manage().deleteCookie(
-                getWebDriver().manage().getCookieNamed(cookieName)
-        );
+        Cookie cookie = getWebDriver().manage().getCookieNamed(cookieName);
+        getWebDriver().manage().deleteCookie(cookie);
+        sleep(1000);
         getWebDriver().manage().addCookie(new Cookie(cookieName, cookieValue));
         refresh();
-        System.out.println(getWebDriver().manage().getCookieNamed(cookieName));
     }
 }
