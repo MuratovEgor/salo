@@ -13,7 +13,7 @@ import ru.aviasales.pageObjects.SearchForm;
 
 @Layer("Web")
 @Owner("egormuratov")
-public class SearchFormTests {
+public class SearchFormTests extends TestBase {
     SearchForm searchForm = new SearchForm();
     CommonSteps commonSteps = new CommonSteps();
 
