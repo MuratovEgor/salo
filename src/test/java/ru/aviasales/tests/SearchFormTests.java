@@ -26,7 +26,7 @@ public class SearchFormTests extends TestBase {
 
     @Test
     @Story("Negative test for Search form")
-    @JiraIssues({@JiraIssue("EM-100")})
+    @JiraIssues({@JiraIssue("HOM-231")})
     @Tags({@Tag("web"), @Tag("regress"), @Tag("UI")})
     @DisplayName("A warning should be displayed if the Departure field is empty")
     void checkWarningDepartureDataIsEmptyTest() {
@@ -37,7 +37,7 @@ public class SearchFormTests extends TestBase {
 
     @Test
     @Story("Successful search")
-    @JiraIssues({@JiraIssue("EM-101")})
+    @JiraIssues({@JiraIssue("HOM-231")})
     @Tags({@Tag("web"), @Tag("regress"), @Tag("UI")})
     @DisplayName("Successful search if checkbox booking unchecked")
     @Disabled("Test not finished")

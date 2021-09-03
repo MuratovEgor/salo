@@ -27,7 +27,7 @@ public class WidgetsTests extends TestBase {
 
     @Test
     @Story("Widgets")
-    @JiraIssues({@JiraIssue("EM-102")})
+    @JiraIssues({@JiraIssue("HOM-231")})
     @Tags({@Tag("web"), @Tag("regress"), @Tag("UI")})
     @DisplayName("The Best Prices widget was shown")
     void showWidgetBestPrices() {
@@ -38,7 +38,7 @@ public class WidgetsTests extends TestBase {
 
     @Test
     @Story("Widgets")
-    @JiraIssues({@JiraIssue("EM-103")})
+    @JiraIssues({@JiraIssue("HOM-231")})
     @Tags({@Tag("web"), @Tag("regress"), @Tag("UI")})
     @DisplayName("The Price Chart widget was shown")
     void showWidgetPriceChart() {
@@ -49,7 +49,7 @@ public class WidgetsTests extends TestBase {
 
     @Test
     @Story("Widgets")
-    @JiraIssues({@JiraIssue("EM-104")})
+    @JiraIssues({@JiraIssue("HOM-231")})
     @Tags({@Tag("web"), @Tag("regress"), @Tag("UI")})
     @DisplayName("The Ticket Restriction widget was shown")
     void showWidgetTicketRestriction() {
