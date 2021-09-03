@@ -27,7 +27,7 @@ public class ConsoleTests extends TestBase {
     @Test
     @Description("Console test")
     @Story("Page console log should not have errors")
-    @Tags({@Tag("web"), @Tag("regress")})
+    @Tags({@Tag("web"), @Tag("smoke")})
     @JiraIssues({@JiraIssue("HOM-231")})
     @DisplayName("Home Page console log should not have errors")
     void consoleShouldNotHaveErrorsTest() {
