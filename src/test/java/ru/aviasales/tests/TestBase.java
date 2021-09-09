@@ -12,7 +12,6 @@ import ru.aviasales.helpers.AllureAttachments;
 import ru.aviasales.helpers.DriverSettings;
 import ru.aviasales.helpers.DriverUtils;
 
-
 @ExtendWith({AllureJunit5.class})
 public class TestBase {
     @BeforeAll
@@ -24,14 +23,10 @@ public class TestBase {
     @AfterEach
     public void addAttachments() {
         String sessionId = DriverUtils.getSessionId();
-
         AllureAttachments.addScreenshotAs("Last screenshot");
         AllureAttachments.addPageSource();
-//        AllureAttachments.attachNetwork(); // todo
         AllureAttachments.addBrowserConsoleLogs();
-
         Selenide.closeWebDriver();
-
         if (Project.isVideoOn()) {
             AllureAttachments.addVideo(sessionId);
         }

@@ -15,7 +15,6 @@ import ru.aviasales.pageObjects.Widgets;
 @Layer("Web")
 @Owner("egormuratov")
 public class WidgetsTests extends TestBase {
-
     static CommonSteps commonSteps = new CommonSteps();
     Widgets widgets = new Widgets();
 

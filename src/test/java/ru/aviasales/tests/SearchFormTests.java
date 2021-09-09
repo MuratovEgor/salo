@@ -17,12 +17,10 @@ public class SearchFormTests extends TestBase {
     SearchForm searchForm = new SearchForm();
     CommonSteps commonSteps = new CommonSteps();
 
-
     @BeforeAll
     static void configureBaseUrl() {
         Configuration.baseUrl = Project.config.baseUrl();
     }
-
 
     @Test
     @Story("Negative test for Search form")
@@ -48,7 +46,7 @@ public class SearchFormTests extends TestBase {
         searchForm.typeDestination("NYC");
         searchForm.selectTodayDepartureDate();
         searchForm.clickBtnNoReturnTicketNeeded();
-
+        //NEED TO DO SOMETHING ELSE
         searchForm.submitForm();
     }
 }

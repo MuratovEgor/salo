@@ -12,7 +12,6 @@ public class CommonSteps {
         open(url);
     }
 
-
     @Step("Edit Cookie: {cookieName}: {cookieValue}")
     public void editCookie(String cookieName, String cookieValue) {
         openPage("");
