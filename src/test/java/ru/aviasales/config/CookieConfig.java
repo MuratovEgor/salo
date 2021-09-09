@@ -8,7 +8,7 @@ import org.aeonbits.owner.Config;
         "classpath:config/cookie.properties"
 })
 public interface CookieConfig extends Config {
-    @DefaultValue("CtYgeWEg4UiRB+0CJaiUAg==")
+    @DefaultValue("rBQjfmE6V4cenwAfC2emAg==")
     @Key("auid")
     String auid();
 }
