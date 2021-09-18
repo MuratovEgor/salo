@@ -6,14 +6,14 @@ import org.junit.jupiter.api.*;
 import ru.aviasales.annotations.JiraIssue;
 import ru.aviasales.annotations.JiraIssues;
 import ru.aviasales.annotations.Layer;
-import ru.aviasales.helpers.CommonSteps;
 import ru.aviasales.pages.SearchForm;
+
+import static com.codeborne.selenide.Selenide.open;
 
 @Layer("Web")
 @Owner("egormuratov")
 public class SearchFormTests extends TestBase {
     SearchForm searchForm = new SearchForm();
-    CommonSteps commonSteps = new CommonSteps();
 
     @Test
     @Story("Negative test for Search form")
@@ -21,7 +21,7 @@ public class SearchFormTests extends TestBase {
     @Tags({@Tag("web"), @Tag("regress"), @Tag("UI")})
     @DisplayName("A warning should be displayed if the Departure field is empty")
     void checkWarningDepartureDataIsEmptyTest() {
-        commonSteps.openPage("/?destination=MOW&origin=KRR");
+        open("/?destination=MOW&origin=KRR");
         searchForm.submitForm();
         searchForm.checkWarningDepartureDataIsEmpty();
     }
@@ -33,13 +33,14 @@ public class SearchFormTests extends TestBase {
     @Tags({@Tag("web"), @Tag("regress"), @Tag("UI")})
     @DisplayName("Successful search if checkbox booking unchecked")
     void successfulSearchWithoutBookingCheckBox() {
-        commonSteps.openPage("");
-        commonSteps.setCookie("uncheck_hotel_cookie", "true");
+        open("");
         searchForm.typeOrigin("MOW");
         searchForm.typeDestination("NYC");
         searchForm.selectTodayDepartureDate();
         searchForm.clickBtnNoReturnTicketNeeded();
+
         //NEED TO DO SOMETHING ELSE
+
         searchForm.submitForm();
     }
 }

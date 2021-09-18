@@ -10,9 +10,9 @@ import org.junit.jupiter.api.Test;
 import ru.aviasales.annotations.JiraIssue;
 import ru.aviasales.annotations.JiraIssues;
 import ru.aviasales.annotations.Layer;
-import ru.aviasales.helpers.CommonSteps;
 import ru.aviasales.helpers.DriverUtils;
 
+import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -27,7 +27,7 @@ public class ConsoleTests extends TestBase {
     @JiraIssues({@JiraIssue("HOM-231")})
     @DisplayName("Home Page console log should not have errors")
     void consoleShouldNotHaveErrorsTest() {
-        new CommonSteps().openPage("");
+        open("");
         step("Console logs should not contain text 'SEVERE'", () -> {
             String consoleLogs = DriverUtils.getConsoleLogs();
             String errorText = "SEVERE";
