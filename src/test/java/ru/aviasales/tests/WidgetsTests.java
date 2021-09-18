@@ -1,6 +1,5 @@
 package ru.aviasales.tests;
 
-import com.codeborne.selenide.Configuration;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.*;
@@ -8,19 +7,17 @@ import ru.aviasales.annotations.JiraIssue;
 import ru.aviasales.annotations.JiraIssues;
 import ru.aviasales.annotations.Layer;
 import ru.aviasales.config.Cookie;
-import ru.aviasales.config.Project;
 import ru.aviasales.helpers.CommonSteps;
-import ru.aviasales.pageObjects.Widgets;
+import ru.aviasales.pages.Widgets;
 
 @Layer("Web")
 @Owner("egormuratov")
 public class WidgetsTests extends TestBase {
-    static CommonSteps commonSteps = new CommonSteps();
+    CommonSteps commonSteps = new CommonSteps();
     Widgets widgets = new Widgets();
 
-    @BeforeAll
-    static void configureBaseUrl() {
-        Configuration.baseUrl = Project.config.baseUrl();
+    @BeforeEach
+    void configureBaseUrl() {
         commonSteps.editCookie("auid", Cookie.config.auid());
     }
 
