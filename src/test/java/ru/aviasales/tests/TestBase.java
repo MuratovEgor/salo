@@ -12,9 +12,18 @@ import ru.aviasales.config.Project;
 import ru.aviasales.helpers.AllureAttachments;
 import ru.aviasales.helpers.DriverSettings;
 import ru.aviasales.helpers.DriverUtils;
+import ru.aviasales.pages.LoginPopup;
+import ru.aviasales.pages.Navbar;
+import ru.aviasales.pages.ProfilePage;
+import ru.aviasales.pages.SearchForm;
 
 @ExtendWith({AllureJunit5.class})
 public class TestBase {
+    Navbar navbar = new Navbar();
+    SearchForm searchForm = new SearchForm();
+    ProfilePage profilePage = new ProfilePage();
+    LoginPopup loginPopup = new LoginPopup();
+
     @BeforeAll
     static void setUp() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());

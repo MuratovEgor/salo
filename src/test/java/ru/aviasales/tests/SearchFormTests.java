@@ -1,6 +1,7 @@
 package ru.aviasales.tests;
 
 import io.qameta.allure.Owner;
+import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.*;
 import ru.aviasales.annotations.JiraIssue;
@@ -13,7 +14,6 @@ import static com.codeborne.selenide.Selenide.open;
 @Layer("Web")
 @Owner("egormuratov")
 public class SearchFormTests extends TestBase {
-    SearchForm searchForm = new SearchForm();
 
     @Test
     @Story("Negative test for Search form")
@@ -24,6 +24,17 @@ public class SearchFormTests extends TestBase {
         open("/?destination=MOW&origin=KRR");
         searchForm.submitForm();
         searchForm.checkWarningDepartureDataIsEmpty();
+    }
+
+    @Test
+    @Story("Hotel search form")
+    @JiraIssues({@JiraIssue("HOM-231")})
+    @Tags({@Tag("web"), @Tag("regress"), @Tag("UI")})
+    @DisplayName("Show hotel search form")
+    void showHotelSearchForm() {
+        open("");
+        searchForm.clickTabHotel();
+        searchForm.hotelSearchFormIsDisplayed();
     }
 
     @Disabled("Test not finished")

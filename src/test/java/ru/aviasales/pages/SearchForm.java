@@ -3,8 +3,7 @@ package ru.aviasales.pages;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
-import static com.codeborne.selenide.Condition.attribute;
-import static com.codeborne.selenide.Condition.cssClass;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 
 public class SearchForm {
@@ -13,7 +12,9 @@ public class SearchForm {
             departureDateField = $(".trip-duration__field.--departure"),
             btnFormSubmit = $("[data-testid='form-submit']"),
             today = $(".calendar__day-cell.today"),
-            btnNoReturnTicketNeeded = $(".trip-duration__cancel-departure");
+            btnNoReturnTicketNeeded = $(".trip-duration__cancel-departure"),
+            tabHotel = $(".page-header [data-goal='hotelTab']"),
+            hotelSearchForm = $("form.hotel-form");
 
 
     @Step("Enter in the field Origin: {origin}")
@@ -47,6 +48,16 @@ public class SearchForm {
     @Step("Click by button no return ticket needed")
     public void clickBtnNoReturnTicketNeeded() {
         btnNoReturnTicketNeeded.click();
+    }
+
+    @Step("Click tab hotel")
+    public void clickTabHotel() {
+        tabHotel.click();
+    }
+
+    @Step("The hotel search form is displayed")
+    public void hotelSearchFormIsDisplayed() {
+        hotelSearchForm.shouldBe(visible);
     }
 
 }
