@@ -1,14 +1,15 @@
 package ru.aviasales.tests;
 
-import com.codeborne.selenide.Configuration;
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Story;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
+import org.junit.jupiter.api.Test;
 import ru.aviasales.annotations.JiraIssue;
 import ru.aviasales.annotations.JiraIssues;
 import ru.aviasales.annotations.Layer;
-import ru.aviasales.config.Project;
 import ru.aviasales.helpers.CommonSteps;
 import ru.aviasales.helpers.DriverUtils;
 
@@ -18,11 +19,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Layer("Web")
 @Owner("egormuratov")
 public class ConsoleTests extends TestBase {
-
-    @BeforeAll
-    static void configureBaseUrl() {
-        Configuration.baseUrl = Project.config.baseUrl();
-    }
 
     @Test
     @Description("Console test")
