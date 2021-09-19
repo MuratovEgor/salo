@@ -1,13 +1,14 @@
 package ru.aviasales.tests;
 
 import io.qameta.allure.Owner;
-import io.qameta.allure.Step;
 import io.qameta.allure.Story;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
+import org.junit.jupiter.api.Test;
 import ru.aviasales.annotations.JiraIssue;
 import ru.aviasales.annotations.JiraIssues;
 import ru.aviasales.annotations.Layer;
-import ru.aviasales.pages.SearchForm;
 
 import static com.codeborne.selenide.Selenide.open;
 
@@ -37,21 +38,20 @@ public class SearchFormTests extends TestBase {
         searchForm.hotelSearchFormIsDisplayed();
     }
 
-    @Disabled("Test not finished")
     @Test
     @Story("Successful search")
     @JiraIssues({@JiraIssue("HOM-231")})
     @Tags({@Tag("web"), @Tag("regress"), @Tag("UI")})
     @DisplayName("Successful search if checkbox booking unchecked")
     void successfulSearchWithoutBookingCheckBox() {
+        cookiesHelper.setCookie("uncheck_hotel_cookie", "true");
+
         open("");
         searchForm.typeOrigin("MOW");
         searchForm.typeDestination("NYC");
         searchForm.selectTodayDepartureDate();
         searchForm.clickBtnNoReturnTicketNeeded();
-
-        //NEED TO DO SOMETHING ELSE
-
         searchForm.submitForm();
+        searchForm.searchHasBegun();
     }
 }

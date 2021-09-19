@@ -10,6 +10,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.extension.ExtendWith;
 import ru.aviasales.config.Project;
 import ru.aviasales.helpers.AllureAttachments;
+import ru.aviasales.helpers.CookiesHelper;
 import ru.aviasales.helpers.DriverSettings;
 import ru.aviasales.helpers.DriverUtils;
 import ru.aviasales.pages.LoginPopup;
@@ -23,6 +24,7 @@ public class TestBase {
     SearchForm searchForm = new SearchForm();
     ProfilePage profilePage = new ProfilePage();
     LoginPopup loginPopup = new LoginPopup();
+    CookiesHelper cookiesHelper = new CookiesHelper();
 
     @BeforeAll
     static void setUp() {
