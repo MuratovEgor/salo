@@ -64,3 +64,5 @@ allure serve build/allure-results
 ## Video of the test run, taken from the Selenoid runtime environment <a href="https://aerokube.com/selenoid/"><img src="images/Selenoid.svg" width="40" height="40"></a>
 
 ![alt "Video from Selenoid"](./images/Video.gif "Video from Selenoid")
+
+
